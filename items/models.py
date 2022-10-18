@@ -1,7 +1,8 @@
 from email.policy import default
 from django.db import models
 
-# CREATE YOUR RELATION HERE
+# Create your models here.
+
 class Category(models.Model):
     class Meta:
         verbose_name_plural = "Categories"
@@ -16,9 +17,11 @@ class Item(models.Model):
     name = models.CharField(max_length=150)
     image = models.TextField()
     price = models.FloatField()
+  
 
     def __str__(self):
         return self.name
 
 
-
+class Comment(models.Model):
+    message = models.TextField()
