@@ -1,7 +1,7 @@
 ## Steps
 
 ### Setup
-1. Fork and clone [this repository]() or you can continue workig on your shop task.
+1. Fork and clone [this repository](https://github.com/JoinCODED/TASK-Django-Relations-2) or you can continue workig on your shop task.
 2. Create a virtual environment.
 3. Install the requirements in `requirements.txt`.
 
