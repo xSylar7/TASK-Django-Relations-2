@@ -1,9 +1,13 @@
+from email.mime import image
+from unicodedata import category
 from django.shortcuts import redirect, render
 
 from items.forms import ItemForm
 from .models import Item
 
 # Create your views here.
+
+
 def get_items(req):
     items = Item.objects.all()
     _items = []
@@ -14,21 +18,26 @@ def get_items(req):
                 "name": item.name,
                 "price": item.price,
                 "image": item.image,
+                "category": {
+                    "name": item.category.name,
+                    "image": item.category.image
+                }
             }
         )
     context = {"items": _items}
     return render(req, "item_list.html", context)
 
+
 def get_item(req, item_id):
     item = Item.objects.get(id=item_id)
     context = {
-               "item": { 
-                    "id": item.id,
-                    "name": item.name,
-                    "price": item.price,
-                    "image": item.image
-                }
-            }
+        "item": {
+            "id": item.id,
+            "name": item.name,
+            "price": item.price,
+            "image": item.image
+        }
+    }
     return render(req, "item_detail.html", context)
 
 
